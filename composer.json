@@ -1,5 +1,5 @@
 {
-  "name": "vonboth/html-rtf-converter",
+  "name": "github-grabaz/html-rtf-converter",
   "description": "A HTML to RTF converter",
   "type":"library",
   "license": "MIT",
@@ -7,13 +7,6 @@
     "html",
     "rtf",
     "converter"
-  ],
-  "authors": [
-    {
-      "name": "Christoph von Both",
-      "email": "info@creatingcode.de",
-      "homepage": "http://creatingcode.de/"
-    }
   ],
   "require": {
     "php": "^5.6 || ^7.0"
