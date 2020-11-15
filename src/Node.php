@@ -126,7 +126,7 @@ class Node
         $nodeSpecific = null;
 
         switch ($node->nodeType) {
-            //HTML element node
+                //HTML element node
             case XML_ELEMENT_NODE:
                 /**
                  * @var \DOMElement $node
@@ -150,6 +150,9 @@ class Node
                         $nodeSpecific = new ElementNode($node, '\line ');
                         break;
                     case 'html':
+                    case 'div':
+                    case 'h1':
+                    case 'h2':
                     case 'a':
                     case 'ol':
                     case 'ul':
@@ -166,25 +169,25 @@ class Node
                         $nodeSpecific = new $class($node);
                         break;
 
-                    //TODO: html special chars (&mbsp; => \~)
+                        //TODO: html special chars (&mbsp; => \~)
 
                     default:
                         $nodeSpecific = new NotSupportedNode($node);
                 }
                 break;
 
-            //Plaintext nodes
+                //Plaintext nodes
             case XML_TEXT_NODE:
                 $nodeSpecific = new TextNode($node);
                 break;
 
-            //start document type nodes
+                //start document type nodes
             case XML_HTML_DOCUMENT_NODE:
             case XML_DOCUMENT_TYPE_NODE:
                 $nodeSpecific = new Node($node);
                 break;
 
-            //remove non supported nodes
+                //remove non supported nodes
             default:
                 $nodeSpecific = new NotSupportedNode($node);
                 break;
